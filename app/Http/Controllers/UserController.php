@@ -62,8 +62,7 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(["status" => false, "message" => "user-not-found"]);
         } else {
-            $verificationCode = str_pad(random_int(0, 999999), 6, '
-            0', STR_PAD_LEFT);
+            $verificationCode = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
             $user->update([
                 'verification_code' => $verificationCode,
                 'code_expires_at' => now()->addMinutes(10)
@@ -77,7 +76,8 @@ class UserController extends Controller
     public function verifyCode(Request $request)
     {
         $request->validate([
-            'code' => 'required|digits:6'
+            'code' => 'required|digits:6',
+            "email" => 'required|email',
         ]);
 
         $user = User::where('email', $request->user()->email)
@@ -86,7 +86,7 @@ class UserController extends Controller
             ->first();
 
         if (!$user) {
-            return response()->json(['message' => 'الرمز غير صالح أو انتهت صلاحيته'], 401);
+            return response()->json(["status" => false], 401);
         }
         $user->update([
             'email_verified_at' => now(),
@@ -94,7 +94,7 @@ class UserController extends Controller
             'code_expires_at' => null
         ]);
 
-        return response()->json(['message' => 'تم التحقق بنجاح']);
+        return response()->json(['status' => true]);
     }
 
     public function reset(Request $request)
