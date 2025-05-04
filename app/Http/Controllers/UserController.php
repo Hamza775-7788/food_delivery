@@ -80,7 +80,7 @@ class UserController extends Controller
             "email" => 'required|email',
         ]);
 
-        $user = User::where('email', $request->user()->email)
+        $user = User::where('email', $request->email)
             ->where('verification_code', $request->code)
             ->where('code_expires_at', '>', now())
             ->first();
