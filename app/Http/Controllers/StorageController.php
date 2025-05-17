@@ -17,7 +17,7 @@ class StorageController extends Controller
 
         if ($request->hasFile("file")) {
             $url = $request->file("file")->store($request->folder, "public");
-            return response()->json(['status' => true, "data" => $url]);
+            return json_encode(['status' => true, "data" => $url]);
         } else {
             return response()->json(['status' => false, "message" => "no image"]);
         }

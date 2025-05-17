@@ -16,9 +16,12 @@ Route::get("profileUser", [UserController::class, "show"])->middleware('auth:san
 Route::apiResource("category", CategoryController::class);
 Route::get("category/{id}/product", [CategoryController::class, "getProduct"]);
 Route::apiResource("profile", ProfileController::class)->middleware('auth:sanctum');
-Route::apiResource("product", ProductController::class)->middleware('auth:sanctum');
+// Route::apiResource("product", ProductController::class)->middleware('auth:sanctum');
+Route::apiResource("product", ProductController::class);
 Route::post("file", [StorageController::class, "store"]);
 Route::post("code", [UserController::class, "verifyCode"]);
 Route::post("signIn", [UserController::class, 'signIn']);
 Route::post("forgot", [UserController::class, "forgot"]);
 Route::post("reset", [UserController::class, "reset"]);
+
+// psotman 
