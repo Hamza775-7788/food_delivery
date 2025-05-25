@@ -16,7 +16,7 @@ Route::get("profileUser", [UserController::class, "show"])->middleware('auth:san
 Route::apiResource("category", CategoryController::class);
 Route::get("category/{id}/product", [CategoryController::class, "getProduct"]);
 Route::apiResource("profile", ProfileController::class)->middleware('auth:sanctum');
-// Route::apiResource("product", ProductController::class)->middleware('auth:sanctum');
+// Route::apiResource("product", ProductController::class);
 Route::apiResource("product", ProductController::class);
 Route::post("file", [StorageController::class, "store"]);
 Route::post("code", [UserController::class, "verifyCode"]);

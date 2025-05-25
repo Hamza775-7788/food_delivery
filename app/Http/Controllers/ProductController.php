@@ -15,7 +15,8 @@ class ProductController extends Controller
     {
         $product = Product::with("category", "productRate")->get();
 
-        return ProductResource::collection($product);
+        $productData =  ProductResource::collection($product);
+        return response()->json(["status" => true, "data" => $productData]);
         // return response()->json(['status' => true, "data" => $product]);
     }
 
