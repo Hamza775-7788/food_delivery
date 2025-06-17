@@ -23,7 +23,7 @@ class ProductResource extends JsonResource
 
         return [
             'id' => $this->id,
-            'created_at' => $this->created_at->format('Y-m-d H:i:s'), // تنسيق التاريخ
+            'created_at' => $this->created_at, // تنسيق التاريخ
             'name' => $this->name,
             'image' => $this->image,
             'description' => $this->description,

@@ -11,7 +11,7 @@ class StorageController extends Controller
     {
         $request->validate([
             "folder" => 'required|string',
-            "file" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            "file" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:15360',
 
         ]);
 

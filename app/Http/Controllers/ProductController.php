@@ -30,9 +30,9 @@ class ProductController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'category_id' => 'required|int',
-            'price' => 'required|string',
+            'price' => 'required|',
             "image" => 'required|string',
-            "delivery_price" => 'required|string',
+            "delivery_price" => 'required|',
             "make_time" => 'required|string',
         ]);
         $product =  Product::create($request->all());

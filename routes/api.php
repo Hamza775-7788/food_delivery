@@ -18,6 +18,7 @@ Route::get("category/{id}/product", [CategoryController::class, "getProduct"]);
 Route::apiResource("profile", ProfileController::class)->middleware('auth:sanctum');
 // Route::apiResource("product", ProductController::class);
 Route::apiResource("product", ProductController::class);
+
 Route::post("file", [StorageController::class, "store"]);
 Route::post("code", [UserController::class, "verifyCode"]);
 Route::post("signIn", [UserController::class, 'signIn']);
