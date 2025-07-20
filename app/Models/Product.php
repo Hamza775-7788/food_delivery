@@ -21,4 +21,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductRate::class, 'product_id');
     }
+
+    public function orderDetails(){
+        return $this->hasMany(orderDetails::class, 'product_id');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StorageController;
@@ -26,4 +27,6 @@ Route::post("signIn", [UserController::class, 'signIn']);
 Route::post("forgot", [UserController::class, "forgot"]);
 Route::post("reset", [UserController::class, "reset"]);
 
+
+Route::get("order", [OrderController::class, 'index']);
 // psotman 
